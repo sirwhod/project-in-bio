@@ -1,6 +1,6 @@
 import { cn } from "@/app/lib/utils";
  
-export default function Button({
+export function Button({
   children,
   variant = "primary",
   ...props

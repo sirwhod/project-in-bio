@@ -1,6 +1,6 @@
 import { cn } from "@/app/lib/utils";
 
-export default function TextInput(
+export function TextInput(
   props: React.InputHTMLAttributes<HTMLInputElement>
 ) {
   return (

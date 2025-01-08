@@ -1,6 +1,6 @@
 import { cn } from "@/app/lib/utils";
 
-export default function TextArea(
+export function TextArea(
   props: React.TextareaHTMLAttributes<HTMLTextAreaElement>
 ) {
   return (
