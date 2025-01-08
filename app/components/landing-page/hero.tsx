@@ -22,7 +22,7 @@ export function Hero() {
           <Button>Criar agora</Button>
         </div>
       </div>
-      <div className="w-full flex items-center justify-center bg-[radial-gradient(circle_at_50%_50%,#4B2DBB,transparent_55%)]">
+      <div className="w-full flex items-center justify-center">
         <div className="relative">
           <UserCard />
           <div className="absolute -bottom-[7%] -right-[45%]">
@@ -34,6 +34,7 @@ export function Hero() {
           <div className="absolute -top-[5%] -left-[55%] -z-10">
             <ProjectCard />
           </div>
+          <div className="absolute bg-[radial-gradient(circle_at_50%_50%,#4B2DBB,transparent_55%)] w-[700px] h-[700px] -top-[10%] -left-[50%] -z-10" />
         </div>
       </div>
     </div>
