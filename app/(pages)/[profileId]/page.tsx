@@ -2,11 +2,14 @@ import { ProjectCard } from "@/app/components/commons/project-card"
 import { TotalVisits } from "@/app/components/commons/total-visits"
 import { UserCard } from "@/app/components/commons/user-card"
 import { auth } from "@/app/lib/auth"
-import { getProfileData } from "@/app/server/get-profile-data"
-import { Plus } from "lucide-react"
+import {
+  getProfileData,
+  getProfileProjects,
+} from "@/app/server/get-profile-data"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { NewProject } from "./new-project"
+import { getDownloadURLFromPath } from "@/app/lib/firebase"
 
 export default async function ProfilePage({
   params,
@@ -21,6 +24,8 @@ export default async function ProfilePage({
     
   // TODO: get projects
   const session = await auth()
+
+  const projects = await getProfileProjects(profileId)
   
   const isOwner = profileData.userId === session?.user?.id
   
@@ -42,9 +47,14 @@ export default async function ProfilePage({
         <UserCard />
       </div>
       <div className="w-full flex justify-center content-start gap-4 flex-wrap overflow-y-auto">
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        {projects.map(async (project) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            isOwner={isOwner}
+            img={await getDownloadURLFromPath(project.imagePath)}
+          />
+        ))}
         {isOwner && <NewProject profileId={profileId} />}
       </div>
       <div className="absolute bottom-4 right-0 left-0 w-min mx-auto">
