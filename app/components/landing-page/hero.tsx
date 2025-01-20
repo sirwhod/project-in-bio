@@ -1,6 +1,6 @@
 import { ProjectCard } from "../commons/project-card";
 import { TotalVisits } from "../commons/total-visits";
-import { UserCard } from "../commons/user-card";
+import { UserCard } from "../commons/user-card/user-card";
 import { Button } from "../ui/button";
 import { TextInput } from "../ui/text-input";
 
@@ -29,10 +29,10 @@ export function Hero() {
             <TotalVisits />
           </div>
           <div className="absolute top-[20%] -left-[45%] -z-10">
-            <ProjectCard />
+            {/* <ProjectCard /> */}
           </div>
           <div className="absolute -top-[5%] -left-[55%] -z-10">
-            <ProjectCard />
+            {/* <ProjectCard /> */}
           </div>
           <div className="absolute bg-[radial-gradient(circle_at_50%_50%,#4B2DBB,transparent_55%)] w-[700px] h-[700px] -top-[10%] -left-[50%] -z-10" />
         </div>
