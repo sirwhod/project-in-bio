@@ -24,7 +24,7 @@ export function Hero() {
       </div>
       <div className="w-full flex items-center justify-center">
         <div className="relative">
-          <UserCard />
+          <UserCard isOwner={false} />
           <div className="absolute -bottom-[7%] -right-[45%]">
             <TotalVisits />
           </div>

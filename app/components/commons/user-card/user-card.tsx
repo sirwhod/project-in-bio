@@ -1,21 +1,28 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
-import { Button } from "../../ui/button";
-import { EditSocialLinks } from "./edit-social-links";
-import Link from "next/link";
-import { ProfileData } from "@/app/server/get-profile-data";
-import AddCustomLink from "./add-custom-link";
-import { formatUrl } from "@/app/lib/utils";
+import { Github, Instagram, Linkedin, Twitter } from "lucide-react"
+import { Button } from "../../ui/button"
+import { EditSocialLinks } from "./edit-social-links"
+import Link from "next/link"
+import { ProfileData } from "@/app/server/get-profile-data"
+import AddCustomLink from "./add-custom-link"
+import { formatUrl } from "@/app/lib/utils"
+import { getDownloadURLFromPath } from "@/app/lib/firebase"
 
-export function UserCard({
+export async function UserCard({
   profileData,
+  isOwner,
 }: {
-  profileData?: ProfileData;
+  profileData?: ProfileData
+  isOwner: boolean
 }) {
+  console.log(profileData)
+
   return (
     <div className="w-[348px] flex flex-col gap-5 items-center p-5 border border-white border-opacity-10 bg-[#121212] rounded-3xl text-white">
       <div className="size-48">
         <img
-          src="https://github.com/sirwhod.png"
+          src={
+            (await getDownloadURLFromPath(profileData?.imagePath)) || "https://github.com/sirwhod.png"
+          }
           alt="Rodrigo Brandão"
           className="rounded-full object-cover w-full h-full"
         />
@@ -23,10 +30,12 @@ export function UserCard({
       <div className="flex flex-col gap-2 w-full">
         <div className="flex items-center gap-2">
           <h3 className="text-3xl font-bold min-w-0 overflow-hidden">
-            Rodrigo Brandão
+            {profileData?.name || "Rodrigo Brandão"}
           </h3>
         </div>
-        <p className="opacity-40">"Eu faço produtos para a Internet"</p>
+        <p className="opacity-40">
+          {profileData?.description || "Eu faço produtos para a Internet"}
+        </p>
       </div>
       <div className="flex flex-col gap-2 w-full">
         <span className="uppercase text-xs font-medium">Links</span>
@@ -67,7 +76,9 @@ export function UserCard({
               <Twitter />
             </Link>
           )}
-          <EditSocialLinks socialMedias={profileData?.socialMedias} />
+          {isOwner && (
+            <EditSocialLinks socialMedias={profileData?.socialMedias} />
+          )}
         </div>
       </div>
       <div className="flex flex-col gap-3 w-full h-[172px]">
@@ -101,7 +112,7 @@ export function UserCard({
           )}
         </div>
       </div>
-      <AddCustomLink />
+      {isOwner && <AddCustomLink />}
     </div>
-  );
+  )
 }

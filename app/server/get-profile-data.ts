@@ -5,18 +5,21 @@ import { db } from "../lib/firebase"
 
 export type ProfileData = {
   userId: string
+  name: string
+  description: string
+  imagePath: string
   totalVisits: number
   createdAt: number
   socialMedias?: {
-    github: string;
-    instagram: string;
-    linkedin: string;
-    twitter: string;
-  };
-  link1?: Link;
-  link2?: Link;
-  link3?: Link;
-  updatedAt?: number;
+    github: string
+    instagram: string
+    linkedin: string
+    twitter: string
+  }
+  link1?: Link
+  link2?: Link
+  link3?: Link
+  updatedAt?: number
 }
 
 export type ProjectData = {
