@@ -6,6 +6,7 @@ import { ProfileData } from "@/app/server/get-profile-data"
 import AddCustomLink from "./add-custom-link"
 import { formatUrl } from "@/app/lib/utils"
 import { getDownloadURLFromPath } from "@/app/lib/firebase"
+import { EditUserCard } from "./edit-user-card"
 
 export async function UserCard({
   profileData,
@@ -32,6 +33,7 @@ export async function UserCard({
           <h3 className="text-3xl font-bold min-w-0 overflow-hidden">
             {profileData?.name || "Rodrigo Brandão"}
           </h3>
+          {isOwner && <EditUserCard profileData={profileData} />}
         </div>
         <p className="opacity-40">
           {profileData?.description || "Eu faço produtos para a Internet"}
