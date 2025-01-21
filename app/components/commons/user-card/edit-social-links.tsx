@@ -7,13 +7,15 @@ import { useParams, useRouter } from "next/navigation"
 import createSocialLinks from "@/app/actions/create-social-links"
 import {TextInput} from "../../ui/text-input"
 
-export function EditSocialLinks({ socialMedias }:{
+export function EditSocialLinks({
+  socialMedias,
+}: {
   socialMedias?: {
-    github: string, 
-    instagram: string, 
-    linkedin: string, 
-    twitter: string
-  }
+    github: string;
+    instagram: string;
+    linkedin: string;
+    twitter: string;
+  };
 }) {
   const router = useRouter()
 
