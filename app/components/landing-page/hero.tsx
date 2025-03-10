@@ -26,13 +26,21 @@ export function Hero() {
         <div className="relative">
           <UserCard isOwner={false} />
           <div className="absolute -bottom-[7%] -right-[45%]">
-            <TotalVisits />
+            <TotalVisits totalVisits={12}/>
           </div>
           <div className="absolute top-[20%] -left-[45%] -z-10">
-            {/* <ProjectCard /> */}
+            <ProjectCard
+              name="Projeto 1"
+              description="Descrição do projeto 1"
+              img="project1.jpg"
+            />
           </div>
           <div className="absolute -top-[5%] -left-[55%] -z-10">
-            {/* <ProjectCard /> */}
+            <ProjectCard
+              name="Projeto 2"
+              description="Descrição do projeto 2"
+              img="project2.jpg"
+            />
           </div>
           <div className="absolute bg-[radial-gradient(circle_at_50%_50%,#4B2DBB,transparent_55%)] w-[700px] h-[700px] -top-[10%] -left-[50%] -z-10" />
         </div>
