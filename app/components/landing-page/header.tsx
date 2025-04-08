@@ -1,6 +1,7 @@
 import { auth } from "@/app/lib/auth";
 import { Button } from "../ui/button";
 import { manageAuth } from "@/app/actions/manage-auth";
+import Link from "next/link";
 
 export async function Header() {
   const session = await auth();
@@ -12,7 +13,7 @@ export async function Header() {
         <h3 className="text-white text-2xl font-bold">ProjectInBio</h3>
       </div>
       <div className="flex items-center gap-4">
-        {session && <Button>Minha Página</Button>}
+        {session && <Link href={`/${session.user?.id}`}><Button>Minha Página</Button></Link>}
         <form action={manageAuth}>
           <Button>{session ? "Sair" : "Login"}</Button>
         </form>
