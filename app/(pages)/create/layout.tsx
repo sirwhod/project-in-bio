@@ -2,7 +2,7 @@ import { auth } from "@/app/lib/auth"
 import { getProfileId } from "@/app/server/get-profile-data"
 import { redirect } from "next/navigation"
 
-export async function RootLayout({
+export default async function Layout({
   children,
 }: {
   children: React.ReactNode
