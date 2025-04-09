@@ -1,8 +1,8 @@
-import { ProjectCard } from "../commons/project-card";
-import { TotalVisits } from "../commons/total-visits";
-import { UserCard } from "../commons/user-card/user-card";
-import { Button } from "../ui/button";
-import { TextInput } from "../ui/text-input";
+import { ProjectCard } from "../commons/project-card"
+import { TotalVisits } from "../commons/total-visits"
+import { UserCard } from "../commons/user-card/user-card"
+import { CreateNow } from "../ui/create-now"
+import { TextInput } from "../ui/text-input"
 
 export function Hero() {
   return (
@@ -19,7 +19,7 @@ export function Hero() {
         <div className="flex items-center gap-2 w-full mt-[10vh]">
           <span className="text-white text-xl">projectinbio.com</span>
           <TextInput placeholder="Seu link" />
-          <Button>Criar agora</Button>
+          <CreateNow />
         </div>
       </div>
       <div className="w-full flex items-center justify-center">
