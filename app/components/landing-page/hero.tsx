@@ -17,8 +17,6 @@ export function Hero() {
           Acompanhe o engajamento com Analytics de cliques
         </h2>
         <div className="flex items-center gap-2 w-full mt-[10vh]">
-          <span className="text-white text-xl">projectinbio.com</span>
-          <TextInput placeholder="Seu link" />
           <CreateNow />
         </div>
       </div>
